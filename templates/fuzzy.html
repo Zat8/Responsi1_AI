@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %}Fuzzy Stress{% endblock %}
+{% block content %}
+<div class="row justify-content-center g-4">
+    <div class="col-lg-7">
+        <div class="glass-card p-4 p-lg-5">
+            <div class="section-label mb-3">Input Fuzzy</div>
+            <h2 class="fw-bold mb-2">Estimasi tingkat stres</h2>
+            <p class="text-secondary mb-4">
+                Form ini mengikuti fungsi Python `calculate_stress(jam_tidur, jumlah_tugas, mood)` dengan rentang input yang sama persis.
+            </p>
+
+            <form method="POST" class="d-grid gap-4">
+                <div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0 fw-semibold">Jam tidur</label>
+                        <output class="range-value">{{ input_data.jam_tidur }} jam</output>
+                    </div>
+                    <input type="range" class="form-range" name="jam_tidur"
+                           min="0" max="12" value="{{ input_data.jam_tidur }}"
+                           oninput="this.previousElementSibling.querySelector('output').value = this.value + ' jam'">
+                    <div class="mini-note">0-12 jam per hari</div>
+                </div>
+
+                <div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0 fw-semibold">Jumlah tugas</label>
+                        <output class="range-value">{{ input_data.jumlah_tugas }} tugas</output>
+                    </div>
+                    <input type="range" class="form-range" name="jumlah_tugas"
+                           min="0" max="10" value="{{ input_data.jumlah_tugas }}"
+                           oninput="this.previousElementSibling.querySelector('output').value = this.value + ' tugas'">
+                    <div class="mini-note">0-10 beban tugas</div>
+                </div>
+
+                <div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0 fw-semibold">Mood</label>
+                        <output class="range-value">{{ input_data.mood }}/10</output>
+                    </div>
+                    <input type="range" class="form-range" name="mood"
+                           min="0" max="10" value="{{ input_data.mood }}"
+                           oninput="this.previousElementSibling.querySelector('output').value = this.value + '/10'">
+                    <div class="mini-note">0 = sangat buruk, 10 = sangat baik</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Hitung Tingkat Stres</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="glass-card p-4 p-lg-5 mb-4">
+            <div class="section-label mb-3">Interpretasi</div>
+            <div class="d-flex flex-column gap-3">
+                <div class="result-panel low">
+                    <strong>Rendah</strong>
+                    <div class="mini-note mt-1">Skor di bawah 30</div>
+                </div>
+                <div class="result-panel medium">
+                    <strong>Sedang</strong>
+                    <div class="mini-note mt-1">Skor 30 sampai 59.99</div>
+                </div>
+                <div class="result-panel high">
+                    <strong>Tinggi</strong>
+                    <div class="mini-note mt-1">Skor 60 ke atas</div>
+                </div>
+            </div>
+        </div>
+
+        {% if error_message %}
+        <div class="glass-card p-4">
+            <div class="alert alert-danger mb-0">{{ error_message }}</div>
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="glass-card p-4 p-lg-5">
+            <div class="section-label mb-3">Hasil Perhitungan</div>
+            <div class="result-panel {% if result.label == 'Rendah' %}low{% elif result.label == 'Sedang' %}medium{% else %}high{% endif %} mb-4">
+                <div class="d-flex justify-content-between align-items-center gap-3 flex-wrap">
+                    <div>
+                        <div class="mini-note">Kategori</div>
+                        <h3 class="fw-bold mb-0">{{ result.label }}</h3>
+                    </div>
+                    <div class="text-end">
+                        <div class="mini-note">Skor fuzzy</div>
+                        <div class="display-6 fw-bold">{{ result.score }}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress mb-3">
+                <div class="progress-bar bg-{{ result.color }}" role="progressbar" style="width: {{ result.score }}%">
+                    {{ result.score }}%
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-4">
+                <span class="metric-pill">Tidur {{ result.input.jam_tidur }} jam</span>
+                <span class="metric-pill">Tugas {{ result.input.jumlah_tugas }}</span>
+                <span class="metric-pill">Mood {{ result.input.mood }}/10</span>
+            </div>
+
+            <div class="alert alert-info mb-0">
+                <strong>Saran:</strong> {{ result.saran }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Home - Mental Health Lab{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-xl-10">
+        <div class="glass-card hero-card p-4 p-lg-5 mb-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <div class="section-label mb-3">Dashboard Pembelajaran</div>
+                    <h1 class="display-5 fw-bold mb-3">Satu aplikasi, dua pendekatan: fuzzy untuk stres, rule matching untuk diagnosa gejala.</h1>
+                    <p class="lead text-secondary mb-4">
+                        Tampilan ini sekarang mengikuti logika Python di backend: estimator stres memakai skor 0-100, sedangkan sistem pakar menampilkan confidence dan kecocokan gejala per kondisi.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="metric-pill">Skor stres 0-100</span>
+                        <span class="metric-pill">3 input fuzzy</span>
+                        <span class="metric-pill">7 gejala pakar</span>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="glass-card p-4 h-100">
+                        <div class="section-label mb-2">Alur Sistem</div>
+                        <p class="mb-2"><strong>Fuzzy:</strong> jam tidur, jumlah tugas, dan mood dipetakan ke label rendah, sedang, atau tinggi.</p>
+                        <p class="mb-0"><strong>Pakar:</strong> gejala yang dipilih dibandingkan dengan basis pengetahuan untuk mencari kondisi paling mungkin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <a href="{{ url_for('fuzzy_page') }}" class="text-decoration-none text-reset">
+                    <div class="glass-card p-4 p-lg-5 h-100">
+                        <div class="section-label mb-3">Fuzzy Stress</div>
+                        <h3 class="fw-bold mb-3">Hitung tingkat stres mahasiswa dari rutinitas harian.</h3>
+                        <p class="text-secondary mb-4">
+                            Input memakai slider sesuai rentang di backend: tidur 0-12 jam, tugas 0-10, dan mood 0-10.
+                        </p>
+                        <span class="btn btn-primary">Buka Estimasi Fuzzy</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-6">
+                <a href="{{ url_for('expert_page') }}" class="text-decoration-none text-reset">
+                    <div class="glass-card p-4 p-lg-5 h-100">
+                        <div class="section-label mb-3">Sistem Pakar</div>
+                        <h3 class="fw-bold mb-3">Cocokkan gejala dengan kondisi mental ringan.</h3>
+                        <p class="text-secondary mb-4">
+                            Hasil menampilkan kondisi utama, confidence, solusi, dan semua kemungkinan berdasarkan rule yang tersedia.
+                        </p>
+                        <span class="btn btn-success">Buka Diagnosa Pakar</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="glass-card p-4 mt-4">
+            <p class="mini-note mb-0">
+                <strong>Catatan:</strong> aplikasi ini bersifat simulasi pembelajaran dan bukan pengganti diagnosis profesional.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
