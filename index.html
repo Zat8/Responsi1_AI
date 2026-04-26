@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="home">
+    <div class="site-shell">
+        <header class="topbar">
+            <div class="container topbar-inner">
+                <a class="brand" href="./index.html">Mental Health Lab</a>
+                <nav class="topnav">
+                    <a href="./fuzzy.html">Logika Fuzzy</a>
+                    <a href="./expert.html">Sistem Pakar</a>
+                    <a href="./dataset.html">Validasi Dataset</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container page">
+            <section class="hero-card glass-card">
+                <div class="hero-copy">
+                    <span class="section-label">Mental Health Lab</span>
+                    <h1>Stress</h1>
+                    <p>
+                        Menghitung tingkat stress menggunakan logika fuzzy serta mengdiagnosis tingkat stress berdasarkan gejala menggunakan sistem pakar.
+                    </p>
+                    <div class="pill-row">
+                        <span class="metric-pill">Logika Fuzzy</span>
+                        <span class="metric-pill">Sistem Pakar</span>
+                        <span class="metric-pill">DATASET</span>
+                    </div>
+                </div>
+
+                <div class="hero-panel">
+                    <div class="glass-card inset-card">
+                        <span class="section-label">Navigasi Halaman</span>
+                        <p><strong>Fuzzy:</strong> halaman khusus untuk estimasi tingkat stres.</p>
+                        <p><strong>Pakar:</strong> halaman khusus untuk diagnosa berbasis gejala.</p>
+                        <p><strong>Dataset:</strong> halaman khusus untuk statistik CSV dan validasi fuzzy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card-grid">
+                <a class="glass-card feature-card" href="./fuzzy.html">
+                    <span class="section-label">Logika Fuzzy</span>
+                    <h2>Hitung Stress Anda</h2>
+                    <p class="muted">Hitung tingkat stres dari jam tidur, tugas, dan mood.</p>
+                    <span class="button button-primary">Hitung</span>
+                </a>
+
+                <a class="glass-card feature-card" href="./expert.html">
+                    <span class="section-label">Sistem Pakar</span>
+                    <h2>Check Tingkat Stress</h2>
+                    <p class="muted">Cocokkan gejala untuk mencari kondisi paling mungkin.</p>
+                    <span class="button button-accent">Diagnosa</span>
+                </a>
+
+                <a class="glass-card feature-card" href="./dataset.html">
+                    <span class="section-label">Validasi Dataset</span>
+                    <h2>Lihat Dataset</h2>
+                    <p class="muted">Lihat statistik CSV dan sampel validasi prediksi fuzzy.</p>
+                    <span class="button button-ghost">Dataset</span>
+                </a>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

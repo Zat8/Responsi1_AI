@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Dataset - Mental Health Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="dataset">
+    <div class="site-shell">
+        <header class="topbar">
+            <div class="container topbar-inner">
+                <a class="brand" href="./index.html">Mental Health Lab</a>
+                <nav class="topnav">
+                    <a href="./index.html">Home</a>
+                    <a href="./fuzzy.html">Logika Fuzzy</a>
+                    <a href="./expert.html">Sistem Pakar</a>
+                    <a href="./dataset.html">Validasi Dataset</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container page">
+            <section class="glass-card dataset-panel">
+                <div class="dataset-head">
+                    <div>
+                        <span class="section-label">Dataset Lokal</span>
+                        <h2>Statistik dan validasi fuzzy</h2>
+                        <p class="muted">
+                            Bagian ini memuat <code>data/stress_dataset.csv</code> dan menghitung ringkasan yang sebelumnya dibuat di backend.
+                        </p>
+                    </div>
+                    <button id="reload-dataset" class="button button-ghost" type="button">Muat Ulang Dataset</button>
+                </div>
+
+                <div id="dataset-status" class="mini-note">Memuat dataset...</div>
+                <div id="dataset-metrics" class="metric-grid"></div>
+                <div id="dataset-table-wrap" class="table-wrap hidden">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Actual</th>
+                                <th>Prediksi</th>
+                                <th>Skor</th>
+                                <th>Error</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataset-table-body"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pakar - Mental Health Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="expert">
+    <div class="site-shell">
+        <header class="topbar">
+            <div class="container topbar-inner">
+                <a class="brand" href="./index.html">Mental Health Lab</a>
+                <nav class="topnav">
+                    <a href="./index.html">Home</a>
+                    <a href="./fuzzy.html">Logika Fuzzy</a>
+                    <a href="./expert.html">Sistem Pakar</a>
+                    <a href="./dataset.html">Validasi Dataset</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container page">
+            <section class="panel-grid">
+                <div class="glass-card panel-main">
+                    <span class="section-label">Rule Matching</span>
+                    <h2>Sistem pakar kesehatan mental ringan</h2>
+                    <p class="muted">
+                        Pilih gejala yang dirasakan.
+                    </p>
+
+                    <form id="expert-form">
+                        <div id="gejala-list" class="symptom-grid"></div>
+                        <button type="submit" class="button button-accent">Diagnosa Sekarang</button>
+                    </form>
+                </div>
+
+                <aside class="glass-card panel-side">
+                    <span class="section-label">Hasil Diagnosa</span>
+                    <div id="expert-empty" class="empty-state">
+                        Belum ada hasil. Pilih satu atau lebih gejala untuk melihat kondisi paling mungkin.
+                    </div>
+                    <div id="expert-result" class="hidden"></div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
